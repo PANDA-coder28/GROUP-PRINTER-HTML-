@@ -7,26 +7,24 @@ if (document.querySelector('.login-box')) {
         const email = document.querySelector('input[type="email"]').value;
         const password = document.querySelector('input[type="password"]').value;
 
-        if(!email || !password) {
-            alert("Please fill in all fields");
-            return;
-        }
-        
-        if(!email.includes('@')) {
-            alert("Please enter a valid email address");
-            return;
-        }
-
-        if(email === "user@gmail.com" && password === "12345") {
-            window.location.replace('index.html');
-        } else {
-            alert("Invalid email or password");
-        }
+        // Redirect with parameters
+        window.location.href = `index.html?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
     });
 }
 
+// Check for URL parameters on index.html
+if (window.location.search) {
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    const password = params.get('password');
+
+    // You can now use these parameters as needed
+    console.log('Email:', email);
+    console.log('Password:', password);
+}
+
 if (document.querySelector('.slider-container')) {
-    const swiper = new Swiper('.slider-wrapper', {
+    const swiper = new Swiper('.slider-container', {
         loop: true,
         pagination: {
             el: '.swiper-pagination',
