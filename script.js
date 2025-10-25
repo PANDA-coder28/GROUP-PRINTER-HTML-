@@ -23,8 +23,8 @@ if (window.location.search) {
     console.log('Password:', password);
 }
 
-if (document.querySelector('.slider-container')) {
-    const swiper = new Swiper('.slider-container', {
+if (document.querySelector('.slider-wrapper')) {
+    const swiper = new Swiper('.slider-wrapper', {
         loop: true,
         pagination: {
             el: '.swiper-pagination',
